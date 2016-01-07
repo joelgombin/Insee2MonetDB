@@ -14,4 +14,7 @@ Imports:
   DBI,
   dplyr,
   downloader
+Remotes:
+  url::http://dev.monetdb.org/Assets/R/MonetDBLite_0.1.0.zip,
+  url::http://dev.monetdb.org/Assets/R/MonetDB.R_1.0.1.zip
 RoxygenNote: 5.0.1
