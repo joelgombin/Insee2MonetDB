@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' \dontrun{tbl_mobsco_2012 <- Insee2MonetDB("http://telechargement.insee.fr/fichiersdetail/RP2012/txt/RP2012_MOBSCO_txt.zip")}
-Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "./MonetDB", tablename = tolower(gsub(".(csv|txt)", "", gsub("^FD_", "", basename(path)))), weight = "IPONDI", all_char = TRUE, print_head = TRUE) {
+Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "./MonetDB", tablename = tolower(gsub(".(csv|txt)", "", gsub("^FD_", "", basename(csv_path)))), weight = "IPONDI", all_char = TRUE, print_head = TRUE) {
 
   library("MonetDB.R") # ugly but can't seem to make it work otherwise
 
