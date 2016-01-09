@@ -68,6 +68,6 @@ Insee2MonetDB <- function(url = NULL, file = NULL, folder = "./MonetDB", tablena
   if (print_head) {
     glimpse(table)
   }
-
+  unlink(tmp)
   invisible(table)
 }
