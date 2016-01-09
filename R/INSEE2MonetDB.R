@@ -38,7 +38,7 @@ Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "
     unzip(path, unzip = "unzip", exdir = tmp, junkpaths = TRUE)
     csv_path <- file.path(tmp, grep("FD_", grep("^FD", list.files(tmp), value = TRUE), value = TRUE))
   } else {
-    csv_path <- csvfile
+    csv_path <- normalizePath(csvfile)
   }
 
   mdb <- dbConnect(MonetDB.R(), embedded = folder)
