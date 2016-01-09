@@ -10,7 +10,7 @@
 #' @param all_char Faut-il définir toutes les variables (à l'excption de celle de poids) comme des character strings?
 #' @param print_head Faut-il afficher les premières lignes de la nouvelle table créée ?
 #'
-#' @import DBI MonetDBLite MonetDB.R dplyr
+#' @import dplyr DBI MonetDBLite MonetDB.R
 #'
 #' @return Retourne (silencieusement) un objet de type \code{tbl.src_monetdb} qui peut ensuite être utilisé avec dplyr.
 #' @export
@@ -18,6 +18,8 @@
 #' @examples
 #' \dontrun{tbl_mobsco_2012 <- Insee2MonetDB("http://telechargement.insee.fr/fichiersdetail/RP2012/txt/RP2012_MOBSCO_txt.zip")}
 Insee2MonetDB <- function(url = NULL, file = NULL, folder = "./MonetDB", tablename = tolower(gsub("_txt.zip", "", basename(path))), weight = "IPONDI", all_char = TRUE, print_head = TRUE) {
+
+  library("MonetDB.R") # ugly but can't seem to make it work otherwise
 
   if (!dir.exists(folder)) {
     dir.create(folder)
@@ -37,7 +39,7 @@ Insee2MonetDB <- function(url = NULL, file = NULL, folder = "./MonetDB", tablena
 
   try(invisible(dbSendQuery(mdb, paste0("DROP TABLE ", tablename))), silent = TRUE)
 
-  csv_path <- file.path(tmp, grep("FD_", list.files(tmp), value = TRUE))
+  csv_path <- file.path(tmp, grep("FD_", grep("^FD", list.files(tmp), value = TRUE), value = TRUE))
   sep <- "';'"
   guess <- read.csv(file = csv_path, sep = ";", stringsAsFactors=FALSE, nrows=1000)
   if (dim(guess)[2] < 2) {
