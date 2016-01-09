@@ -4,14 +4,16 @@
 \alias{Insee2MonetDB}
 \title{Télécharge une base de données INSEE et la charge dans une BDD MonetDB}
 \usage{
-Insee2MonetDB(url = NULL, file = NULL, folder = "./MonetDB",
-  tablename = tolower(gsub("_txt.zip", "", basename(path))),
-  weight = "IPONDI", all_char = TRUE, print_head = TRUE)
+Insee2MonetDB(url = NULL, zipfile = NULL, csvfile = NULL,
+  folder = "./MonetDB", tablename = tolower(gsub("_txt.zip", "",
+  basename(path))), weight = "IPONDI", all_char = TRUE, print_head = TRUE)
 }
 \arguments{
 \item{url}{URL de la base de données à télécharger}
 
-\item{file}{chemin de la base données (zippée) déjà téléchargée}
+\item{zipfile}{chemin de la base données zippée déjà téléchargée}
+
+\item{csvfile}{chemin du fichier csv (dézippé) déjà téléchargé}
 
 \item{folder}{dossier dans lequel la base de données MonetDBLite doit être créée (par défaut, dans un sous-dossier du répertoire de travail)}
 
