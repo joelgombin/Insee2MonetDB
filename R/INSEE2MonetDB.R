@@ -73,6 +73,6 @@ Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "
   if (print_head) {
     glimpse(table)
   }
-  unlink(tmp, recursive = TRUE)
+  if (is.null(csvfile)) unlink(tmp, recursive = TRUE)
   invisible(table)
 }

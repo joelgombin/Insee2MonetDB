@@ -5,8 +5,9 @@
 \title{Télécharge une base de données INSEE et la charge dans une BDD MonetDB}
 \usage{
 Insee2MonetDB(url = NULL, zipfile = NULL, csvfile = NULL,
-  folder = "./MonetDB", tablename = tolower(gsub("_txt.zip", "",
-  basename(path))), weight = "IPONDI", all_char = TRUE, print_head = TRUE)
+  folder = "./MonetDB", tablename = tolower(gsub(".(csv|txt)", "",
+  gsub("^FD_", "", basename(csv_path)))), weight = "IPONDI",
+  all_char = TRUE, print_head = TRUE)
 }
 \arguments{
 \item{url}{URL de la base de données à télécharger}
