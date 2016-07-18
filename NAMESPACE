@@ -2,6 +2,5 @@
 
 export(Insee2MonetDB)
 import(DBI)
-import(MonetDB.R)
 import(MonetDBLite)
 import(dplyr)

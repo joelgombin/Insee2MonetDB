@@ -1,7 +1,7 @@
 Package: Insee2MonetDB
 Type: Package
 Title: Importe et stocke des fichiers détails de l'INSEE
-Version: 0.0.1
+Version: 0.0.2
 Author: Joel Gombin
 Maintainer: Joel Gombin <joel.gombin@gmail.com>
 Description: Ce petit package vise à automatiser l'import automatique de
@@ -10,9 +10,7 @@ License: GPL-2
 LazyData: TRUE
 Imports:
   MonetDBLite,
-  MonetDB.R,
   DBI,
   dplyr,
   downloader
-Additional_repositories: http://dev.monetdb.org/Assets/R/
 RoxygenNote: 5.0.1

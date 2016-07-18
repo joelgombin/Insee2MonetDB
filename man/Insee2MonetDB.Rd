@@ -27,7 +27,7 @@ Insee2MonetDB(url = NULL, zipfile = NULL, csvfile = NULL,
 \item{print_head}{Faut-il afficher les premières lignes de la nouvelle table créée ?}
 }
 \value{
-Retourne (silencieusement) un objet de type \code{tbl.src_monetdb} qui peut ensuite être utilisé avec dplyr.
+Retourne (silencieusement) un objet de type \code{tbl.src_monetdblite} qui peut ensuite être utilisé avec dplyr.
 }
 \description{
 Télécharge une base de données INSEE et la charge dans une BDD MonetDB

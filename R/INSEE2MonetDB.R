@@ -11,16 +11,14 @@
 #' @param all_char Faut-il définir toutes les variables (à l'excption de celle de poids) comme des character strings?
 #' @param print_head Faut-il afficher les premières lignes de la nouvelle table créée ?
 #'
-#' @import dplyr DBI MonetDBLite MonetDB.R
+#' @import dplyr DBI MonetDBLite
 #'
-#' @return Retourne (silencieusement) un objet de type \code{tbl.src_monetdb} qui peut ensuite être utilisé avec dplyr.
+#' @return Retourne (silencieusement) un objet de type \code{tbl.src_monetdblite} qui peut ensuite être utilisé avec dplyr.
 #' @export
 #'
 #' @examples
 #' \dontrun{tbl_mobsco_2012 <- Insee2MonetDB("http://telechargement.insee.fr/fichiersdetail/RP2012/txt/RP2012_MOBSCO_txt.zip")}
 Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "./MonetDB", tablename = tolower(gsub(".(csv|txt)", "", gsub("^FD_", "", basename(csv_path)))), weight = "IPONDI", all_char = TRUE, print_head = TRUE) {
-
-  library("MonetDB.R") # ugly but can't seem to make it work otherwise
 
   if (!dir.exists(folder)) {
     dir.create(folder)
@@ -67,7 +65,7 @@ Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "
 
   invisible(dbSendQuery(mdb, paste0("COPY OFFSET 2 INTO ", tablename, " FROM '", csv_path, "' USING  DELIMITERS ", sep)))
 
-  conn <- MonetDB.R::src_monetdb(embedded = folder)
+  conn <- src_monetdblite(folder)
   table <- tbl(conn, from = tablename)
 
   if (print_head) {
