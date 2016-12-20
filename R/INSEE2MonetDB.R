@@ -25,6 +25,9 @@ Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "
   }
   if (is.null(csvfile)) {
     tmp <- tempdir()
+    if (!dir.exists(tmp)) {
+      dir.create(tmp)
+    }
     if (is.null(zipfile)) {
       file <- basename(url)
       downloader::download(url, destfile = file.path(tmp, file))
