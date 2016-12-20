@@ -11,6 +11,5 @@ LazyData: TRUE
 Imports:
   MonetDBLite,
   DBI,
-  dplyr,
-  downloader
+  dplyr
 RoxygenNote: 5.0.1
