@@ -68,7 +68,7 @@ Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "
 
   invisible(dbSendQuery(mdb, paste0("COPY OFFSET 2 INTO ", tablename, " FROM '", csv_path, "' USING  DELIMITERS ", sep)))
 
-  conn <- src_monetdblite(folder)
+  conn <- dbConnect(MonetDBLite(), folder)
   table <- tbl(conn, from = tablename)
 
   if (print_head) {

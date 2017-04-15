@@ -12,4 +12,5 @@ Imports:
   MonetDBLite,
   DBI,
   dplyr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
+Encoding: UTF8

@@ -35,4 +35,3 @@ Télécharge une base de données INSEE et la charge dans une BDD MonetDB
 \examples{
 \dontrun{tbl_mobsco_2012 <- Insee2MonetDB("http://telechargement.insee.fr/fichiersdetail/RP2012/txt/RP2012_MOBSCO_txt.zip")}
 }
-
