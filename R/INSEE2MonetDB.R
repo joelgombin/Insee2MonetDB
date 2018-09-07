@@ -54,7 +54,7 @@ Insee2MonetDB <- function(url = NULL, zipfile = NULL, csvfile = NULL, folder = "
   }
 
   create <- sprintf(paste0("CREATE TABLE ", tablename, " ( %s )"),
-                    paste0(sprintf('"%s" %s', tolower(colnames(guess)),  # garder tolower ou pas ?
+                    paste0(sprintf('"%s" %s', colnames(guess),  # garder tolower ou pas ? => non
                                    sapply(guess, dbDataType, dbObj=mdb)), collapse = ","))
   if (all_char) {
     create <- gsub('INTEGER', 'STRING', create, fixed = TRUE)
